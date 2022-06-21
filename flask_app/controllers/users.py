@@ -6,7 +6,8 @@ bcrypt = Bcrypt(app)
 
 @app.route("/")
 def display_login_registration():
-    if User.validate_user_session() == True:
+    # If I put if validate_user_session() == True: return redirect("/success"), this causes the flash to show up on the first page as well. So, do if "id" in session
+    if "id" in session:
         return redirect("/success")
     else:
         return render_template("login_registration.html")
