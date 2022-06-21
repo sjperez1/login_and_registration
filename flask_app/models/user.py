@@ -62,8 +62,8 @@ class User:
 
     @staticmethod
     def validate_user_session():
-        if "id" not in session:
+        if "id" in session:
+            return True
+        else:
             flash("You must login to view this page.", "error_must_login")
             return False
-        else:
-            return True

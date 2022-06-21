@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>Hello, {{session['first_name']}}!</h1>
-    <a href="/logout">Logout</a>
+    <form action="/logout", method="POST">
+        <button type="submit">Logout</button>
+    </form>
 </body>
 </html>

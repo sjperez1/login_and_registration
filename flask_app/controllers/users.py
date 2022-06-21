@@ -7,7 +7,7 @@ bcrypt = Bcrypt(app)
 @app.route("/")
 def display_login_registration():
     if User.validate_user_session() == True:
-        return redirect("/todos")
+        return redirect("/success")
     else:
         return render_template("login_registration.html")
 
@@ -64,7 +64,7 @@ def display_dashboard():
         return render_template("success.html")
     
 
-@app.route("/logout")
+@app.route("/logout", methods = ['POST'])
 def logout():
     session.clear()
     return redirect ("/")
